@@ -1,40 +1,39 @@
 # Xtreed Embed Offer
 
-Aplicação para fazer embed de uma oferta upsell em qualquer plataforma web.
+Application to embed an upsell offer into any web platform.
 
-## 📋 Índice
+## 📋 Table of Contents
 
 - [Xtreed Embed Offer](#xtreed-embed-offer)
-  - [📋 Índice](#-índice)
-  - [🚀 Como obter o código de integração](#-como-obter-o-código-de-integração)
-  - [💻 Instalação](#-instalação)
-  - [🐛 Modo Debug](#-modo-debug)
-  - [🎨 Customização](#-customização)
-    - [Estilos do Card](#estilos-do-card)
-    - [Fonte Customizada](#fonte-customizada)
-    - [Alteração dos Textos](#alteração-dos-textos)
-  - [📝 Parâmetros](#-parâmetros)
-    - [Obrigatórios](#obrigatórios)
-    - [Opcionais](#opcionais)
-  - [💡 Exemplos](#-exemplos)
-    - [Exemplo Básico](#exemplo-básico)
-    - [Exemplo com Customização](#exemplo-com-customização)
-    - [Exemplo com Estilos Avançados](#exemplo-com-estilos-avançados)
-  - [🔧 Desenvolvimento](#-desenvolvimento)
-  - [📞 Suporte](#-suporte)
+  - [📋 Table of Contents](#-table-of-contents)
+  - [🚀 How to get the integration code](#-how-to-get-the-integration-code)
+  - [💻 Installation](#-installation)
+  - [🐛 Debug Mode](#-debug-mode)
+  - [🎨 Customization](#-customization)
+    - [Card Styles](#card-styles)
+    - [Custom Font](#custom-font)
+    - [Text Overrides](#text-overrides)
+  - [📝 Parameters](#-parameters)
+    - [Required](#required)
+    - [Optional](#optional)
+  - [💡 Examples](#-examples)
+    - [Basic Example](#basic-example)
+    - [Example with Customization](#example-with-customization)
+    - [Example with Advanced Styles](#example-with-advanced-styles)
+  - [📞 Support](#-support)
 
-## 🚀 Como obter o código de integração
+## 🚀 How to get the integration code
 
-1. Na conta conectada na Xtreed, vá até **Produtos**
-2. Crie ou selecione um produto
-3. Acesse **Estratégias de vendas**
-4. Crie ou visualize uma estratégia como **Upsell**
-5. Vá até o campo **Código para integração** e copie o código
-6. Cole o código onde você deseja que ele apareça no seu site
+1. In your connected Xtreed account, go to **Products**
+2. Create or select a product
+3. Open **Sales strategies**
+4. Create or view a strategy such as **Upsell**
+5. Go to the **Integration code** field and copy the code
+6. Paste the code where you want it to appear on your site
 
-## 💻 Instalação
+## 💻 Installation
 
-Com o código em mãos, cole onde você deseja que ele apareça no seu site:
+With the code in hand, paste it where you want it to appear on your site:
 
 ```html
 <div id="xtreed-root" 
@@ -45,26 +44,26 @@ Com o código em mãos, cole onde você deseja que ele apareça no seu site:
 </div>
 ```
 
-## 🐛 Modo Debug
+## 🐛 Debug Mode
 
-Para facilitar a integração, temos o modo debug que printa `console.log` da queryString, parâmetros passados no `xtreed-root` e alguns outros dados importantes.
+To make integration easier, we provide a debug mode that prints `console.log` for the query string, parameters passed in `xtreed-root`, and some other important data.
 
-**Para ativar:**
+**To enable:**
 ```html
 data-debug="true"
 ```
 
-⚠️ **Atenção:** Desative quando for para produção!
+⚠️ **Attention:** Disable it for production!
 
-## 🎨 Customização
+## 🎨 Customization
 
-### Estilos do Card
+### Card Styles
 
-Utilizamos o [xstyled](https://xstyled.dev) para fazer todo o gerenciamento de UI. Temos já alguns estilos base mas podem ser alterados conforme necessário. Veja a documentação: [https://xstyled.dev/docs/utility-props/](https://xstyled.dev/docs/utility-props/)
+We use [xstyled](https://xstyled.dev) to manage the UI. We already provide some base styles, but they can be changed as needed. See the docs: [https://xstyled.dev/docs/utility-props/](https://xstyled.dev/docs/utility-props/)
 
-**Sintaxe dos estilos:** Os estilos devem ser passados como JSON usando a sintaxe do `@xstyled/styled-components` com propriedades abreviadas e valores do sistema de design tokens.
+**Style syntax:** Styles must be passed as JSON using the `@xstyled/styled-components` syntax with shorthand properties and values from the design token system.
 
-**Exemplos de sintaxe:**
+**Syntax examples:**
 - `padding: 24px` → `{"p": 6}`
 - `margin: 16px` → `{"m": 4}`
 - `background: #ffffff` → `{"bg": "white"}`
@@ -72,71 +71,71 @@ Utilizamos o [xstyled](https://xstyled.dev) para fazer todo o gerenciamento de U
 - `font-size: 18px` → `{"fontSize": "18px"}`
 - `border-radius: 8px` → `{"borderRadius": "8px"}`
 
-Todas as seções do card são customizáveis (exceto estruturais), e podem ser passadas como parâmetros no código de integração:
+All card sections are customizable (except structural ones) and can be passed as parameters in the integration code:
 
-| Parâmetro | Descrição | Exemplo |
-|-----------|-----------|---------|
-| `data-container-style` | Estilos do container principal, borda, background, padding, etc. | `'{"border": "2px solid gray.200", "borderRadius": "12px", "p": 6, "bg": "white"}'` |
-| `data-image-wrapper-style` | Estilos do wrapper da imagem, tamanho etc. | `'{"w": "100%", "h": "200px", "overflow": "hidden", "borderRadius": "8px"}'` |
-| `data-image-style` | Estilos e propriedades da imagem do produto | `'{"w": "100%", "h": "100%", "objectFit": "cover"}'` |
-| `data-message-error-style` | Estilos da mensagem de erro | `'{"color": "red.500", "fontSize": "14px", "p": 3}'` |
-| `data-message-success-style` | Estilos da mensagem de sucesso | `'{"color": "green.500", "fontSize": "14px", "p": 3}'` |
-| `data-product-meta-style` | Estilos do container onde os meta dados do produto serão exibidos | `'{"py": 4, "px": 6}'` |
-| `data-product-name-style` | Estilos do texto do nome do produto | `'{"fontSize": "20px", "fontWeight": 700, "color": "gray.800"}'` |
-| `data-product-description-style` | Estilos do texto da descrição do produto | `'{"fontSize": "14px", "color": "gray.600", "lineHeight": 1.5}'` |
-| `data-product-price-style` | Estilos do preço do produto | `'{"fontSize": "18px", "fontWeight": 600, "color": "green.600"}'` |
-| `data-product-price-without-discount-style` | Estilos do preço sem desconto do produto (se houver) | `'{"fontSize": "14px", "color": "gray.500", "textDecoration": "line-through"}'` |
-| `data-accept-button-style` | Estilos do botão de aceite de oferta | `'{"bg": "green.500", "color": "white", "px": 6, "py": 3, "borderRadius": "8px"}'` |
-| `data-reject-button-style` | Estilos do botão de rejeitar oferta | `'{"bg": "transparent", "color": "gray.500", "border": "1px solid gray.200", "px": 6, "py": 3}'` |
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `data-container-style` | Styles for the main container, border, background, padding, etc. | `'{"border": "2px solid gray.200", "borderRadius": "12px", "p": 6, "bg": "white"}'` |
+| `data-image-wrapper-style` | Styles for the image wrapper, sizing, etc. | `'{"w": "100%", "h": "200px", "overflow": "hidden", "borderRadius": "8px"}'` |
+| `data-image-style` | Styles and properties of the product image | `'{"w": "100%", "h": "100%", "objectFit": "cover"}'` |
+| `data-message-error-style` | Styles for the error message | `'{"color": "red.500", "fontSize": "14px", "p": 3}'` |
+| `data-message-success-style` | Styles for the success message | `'{"color": "green.500", "fontSize": "14px", "p": 3}'` |
+| `data-product-meta-style` | Styles for the container where product metadata will be displayed | `'{"py": 4, "px": 6}'` |
+| `data-product-name-style` | Styles for the product name text | `'{"fontSize": "20px", "fontWeight": 700, "color": "gray.800"}'` |
+| `data-product-description-style` | Styles for the product description text | `'{"fontSize": "14px", "color": "gray.600", "lineHeight": 1.5}'` |
+| `data-product-price-style` | Styles for the product price | `'{"fontSize": "18px", "fontWeight": 600, "color": "green.600"}'` |
+| `data-product-price-without-discount-style` | Styles for the product price without discount (if any) | `'{"fontSize": "14px", "color": "gray.500", "textDecoration": "line-through"}'` |
+| `data-accept-button-style` | Styles for the accept offer button | `'{"bg": "green.500", "color": "white", "px": 6, "py": 3, "borderRadius": "8px"}'` |
+| `data-reject-button-style` | Styles for the reject offer button | `'{"bg": "transparent", "color": "gray.500", "border": "1px solid gray.200", "px": 6, "py": 3}'` |
 
-### Fonte Customizada
+### Custom Font
 
-Para adicionar uma fonte customizada, adicione as seguintes propriedades:
+To add a custom font, add the following properties:
 
 ```html
 data-custom-font-url="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&display=swap"
 data-custom-font-name="Bitcount Single Ink"
 ```
 
-- `data-custom-font-url`: URL do stylesheet da fonte (ex: Google Fonts)
-- `data-custom-font-name`: Nome da fonte customizada (ex: "Bitcount Single Ink")
+- `data-custom-font-url`: Stylesheet URL for the font (e.g., Google Fonts)
+- `data-custom-font-name`: Name of the custom font (e.g., "Bitcount Single Ink")
 
-### Alteração dos Textos
+### Text Overrides
 
-Para alterar os textos dos botões, adicione as seguintes propriedades:
+To change the button texts, add the following properties:
 
-⚠️ **Atenção:** É preciso adicionar nos 3 idiomas da plataforma (pt, es, en)
+⚠️ **Attention:** You must provide all 3 platform languages (pt, es, en)
 
 ```html
 data-accept-button-text='{"pt": "Aceitar oferta", "es": "Aceptar oferta", "en": "Accept offer"}'
 data-reject-button-text='{"pt": "Recusar oferta", "es": "Rechazar oferta", "en": "Reject offer"}'
 ```
 
-## 📝 Parâmetros
+## 📝 Parameters
 
-### Obrigatórios
+### Required
 
-| Parâmetro | Descrição | Exemplo |
-|-----------|-----------|---------|
-| `id="xtreed-root"` | **Obrigatório** - Referência onde inicializar a integração (não pode ser mudado) | `id="xtreed-root"` |
-| `data-language` | Idioma atual do painel Xtreed | `pt`, `en` ou `es` |
-| `data-offer-id` | ID da oferta oferecida (obtido no painel Xtreed) | `"123"` |
-| `data-item-id` | ID da estratégia de vendas (obtido no painel Xtreed) | `"456"` |
-| `data-environment` | Ambiente da integração | `development` ou `production` |
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `id="xtreed-root"` | **Required** - Reference where the integration is initialized (cannot be changed) | `id="xtreed-root"` |
+| `data-language` | Current language from the Xtreed dashboard | `pt`, `en` or `es` |
+| `data-offer-id` | ID of the offered offer (obtained in the Xtreed dashboard) | `"123"` |
+| `data-item-id` | ID of the sales strategy (obtained in the Xtreed dashboard) | `"456"` |
+| `data-environment` | Integration environment | `development` or `production` |
 
-### Opcionais
+### Optional
 
-| Parâmetro | Descrição | Padrão |
-|-----------|-----------|---------|
-| `data-debug` | Ativa logs de debug no console | `false` |
-| `data-custom-font-url` | URL da fonte customizada | - |
-| `data-custom-font-name` | Nome da fonte customizada | - |
-| `data-accept-button-text` | Texto do botão de aceitar (JSON com idiomas) | - |
-| `data-reject-button-text` | Texto do botão de rejeitar (JSON com idiomas) | - |
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `data-debug` | Enables debug logs in the console | `false` |
+| `data-custom-font-url` | URL of the custom font | - |
+| `data-custom-font-name` | Name of the custom font | - |
+| `data-accept-button-text` | Accept button text (JSON with languages) | - |
+| `data-reject-button-text` | Reject button text (JSON with languages) | - |
 
-## 💡 Exemplos
+## 💡 Examples
 
-### Exemplo Básico
+### Basic Example
 
 ```html
 <div id="xtreed-root" 
@@ -147,7 +146,7 @@ data-reject-button-text='{"pt": "Recusar oferta", "es": "Rechazar oferta", "en":
 </div>
 ```
 
-### Exemplo com Customização
+### Example with Customization
 
 ```html
 <div id="xtreed-root" 
@@ -166,7 +165,7 @@ data-reject-button-text='{"pt": "Recusar oferta", "es": "Rechazar oferta", "en":
 </div>
 ```
 
-### Exemplo com Estilos Avançados
+### Example with Advanced Styles
 
 ```html
 <div id="xtreed-root" 
@@ -186,21 +185,6 @@ data-reject-button-text='{"pt": "Recusar oferta", "es": "Rechazar oferta", "en":
 </div>
 ```
 
-## 🔧 Desenvolvimento
+## 📞 Support
 
-Para executar o projeto em modo de desenvolvimento:
-
-```bash
-npm install
-npm start
-```
-
-Para build de produção:
-
-```bash
-npm run build
-```
-
-## 📞 Suporte
-
-Para dúvidas ou suporte, entre em contato através do painel Xtreed ou consulte a documentação oficial.
+For questions or support, contact us through the Xtreed dashboard or consult the official documentation.
